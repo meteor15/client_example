@@ -1,0 +1,174 @@
+.b-chat-head-title {
+    color: #404040;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.b-chat-field {
+    border-top: solid #c0c0c0 2px;
+    border-bottom: solid #c0c0c0 2px;
+    background-image: none;
+    height: 500px;
+    overflow-y: scroll;
+    overflow-scrolling: 1;
+}
+
+.b-loading-field {
+    border-top: solid #c0c0c0 2px;
+    border-bottom: solid #c0c0c0 2px;
+    height: 500px;
+    background-image: url("loading.gif");
+    background-size: 120px 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.b-chat-field-message-name {
+    font-weight: bold;
+}
+
+.b-chat-field-message-text {
+    color: #404040;
+}
+
+.b-chat-send {
+    width: 100%;
+}
+
+.b-chat-send-text-line {
+    width: 100%;
+    padding: 15px 15px 5px 0px;
+    text-align: center;
+}
+
+.b-chat-send-text-line-area {
+    width: 96%;
+    border: solid gray 1px;
+    height: 40px;
+    padding: 5px;
+    resize: none;
+}
+
+.b-chat-send-right-button {
+    width: 100%;
+    max-width: 80px;
+    cursor: pointer;
+    background-color: #6F00B4;
+    color: #ffffff;
+    border: 0px;
+    height: 26px;
+}
+
+.b-chat-settings {
+    position: relative;
+    visibility: hidden;
+}
+
+.b-chat-settings-field {
+    background-color: #ffffff;
+    border: solid #c0c0c0 1px;
+    width: 140px;
+    height: 130px;
+    padding: 10px;
+    position: absolute;
+    top: -157px;
+    z-index: 1000;
+}
+
+.b-chat-settings-field-head {
+    padding: 3px;
+    font-size: 14px;
+    line-height: 30px;
+    color: gray;
+}
+
+.b-chat-settings-field-cell {
+    float: left;
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.b-chat-settings-field-cell:hover {
+    .b-chat-settings-field-cell;
+    background-color: #c0c0c0;
+}
+
+.b-chat-settings-field-cell-color {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+}
+
+.b-chat-settings-button {
+    width: 26px;
+    height: 26px;
+    background-image: url("options.png");
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.b-chat-settings-button:hover {
+    .b-chat-settings-button;
+    background-image: url("options_dark.png");
+    background-size: 100% 100%;
+}
+
+.b-chat-settings-field-time {
+    line-height: 50px;
+    font-size: 12px;
+}
+
+.b-chat-settings-field-time-text {
+    position: relative;
+    top: -3px;
+}
+
+.b-chat-buttons {
+    width: 100%;
+}
+
+.b-chat-buttons-left {
+    width: 40%;
+    float: left;
+    padding: 5px 0px
+}
+
+.b-chat-buttons-right {
+    width: 56%;
+    float: right;
+    padding: 5px 0px 0px 0px;
+    text-align: right;
+}
+
+.b-chat-field-message-time {
+    color: gray;
+    font-size: 14px;
+    visibility: hidden;
+    position: absolute;
+}
+
+.b-chat-field-message-time-check {
+    visibility: visible;
+    position: relative;
+}
+
+@colors: red, blue, green, #92dd2f, mediumspringgreen, #a52a2a, orange, yellow, #6F00B4, violet;
+
+@count: length(@colors);
+
+.loop (@index) when (@index > 0){
+    @color: extract(@colors, @index);
+    .b-chat-message-color-@{index} {
+        color: @color;
+    }
+    .b-chat-settings-color-@{index} {
+        background-color: @color;
+    }
+    .loop (@index - 1);
+}
+.loop(0){}
+
+.loop(@count);
